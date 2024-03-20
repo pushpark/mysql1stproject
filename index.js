@@ -1,10 +1,12 @@
 const express = require('express');
 const mysql = require('mysql');
 const dbConfig = require('./dbConfig');
+const compression = require('compression');
+
 
 const app = express();
 
-app.use(express.json());
+app.use(compression());
 
 const db = mysql.createConnection(dbConfig);
 db.connect((err) => {
